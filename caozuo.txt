@@ -20,7 +20,7 @@ git commit -m ”这一次提交的描述“
 用编译器打开，复制内容
 16.GitHub配置密匙：点击右上角头像下拉列表中的settings，点击SSH and GPG keys，
 然后点击右上角的new SSH key，把内容复制到key中，点击配置就可以了
-17.暂存区->远程仓库：git remote add origin 仓库地址，（新建的仓库上面有代码提示）
+17.暂存区->远程仓库：git remote add origin 仓库地址，git branch -M mian,git push -u origin main（新建的仓库上面有代码提示）
 18.在前面的操作之后，以后的操作就简单多了，只需要：git add *,git commit -m "",最后一步只需要git push
 19.项目克隆：git clone 仓库地址
 20.更新项目:git pull
