@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>电影展</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            width: 80%;
+            margin-left: 10%;
+        }
+        h1{
+            text-align: center;
+            margin-top: 30px;
+        }
+        .xhddy,.xhds{
+            display: flex;
+        }
+        .dianying,.shu{
+            width: 20%;
+            height: 400px;
+            margin: 20px;
+            background-color: #FEF0EF;
+            border: 1px solid red;
+        }
+        .dianying:hover,.shu:hover{
+            margin-top: -5px;
+        }
+        img {
+            width: 100%;
+            height: 90%;
+            padding: 2%;
+            box-sizing: border-box;
+        }
+        p{
+            text-align: center;
+        }
+        .jieshao{
+            width: 100%;
+            height: 200px;
+            padding-left: 10%;
+            padding-right: 10%;
+            box-sizing: border-box;
+            background-color: #7F0012;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #7F0025;
+        }
+        .jieshao p{
+            color: white;
+            width: 600px;         
+        }
+        .jieshao img{
+            width: 150px;
+            height: 150px;
+        }
+        .foot{
+            background-color: #7F0012;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .foot p{
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>喜欢的电影</h1>
+    <div class="xhddy">
+        <div class="dianying">
+            <img src="./dianying.jpg" alt="">
+            <p>海贼王</p>
+        </div>
+        <div class="dianying">
+            <img src="./dianying.jpg" alt="">
+            <p>海贼王</p>
+        </div>
+        <div class="dianying">
+            <img src="./dianying.jpg" alt="">
+            <p>海贼王</p>
+        </div>
+        <div class="dianying">
+            <img src="./dianying.jpg" alt="">
+            <p>海贼王</p>
+        </div>
+    </div>
+    <h1>喜欢的书</h1>
+    <div class="xhds">
+        <div class="shu">
+            <img src="./shu.jpg" alt="">
+            <p>书</p>
+        </div>
+        <div class="shu">
+            <img src="./shu.jpg" alt="">
+            <p>书</p>
+        </div>
+        <div class="shu">
+            <img src="./shu.jpg" alt="">
+            <p>书</p>
+        </div>
+        <div class="shu">
+            <img src="./shu.jpg" alt="">
+            <p>书</p>
+        </div>
+    </div>
+    <div class="jieshao">
+        <p>王小波说他是一只特立独行的猪，那我就当个一只特立独行的鸟吧。交个朋友么，扫下右边的二维码。        </p>
+        <img src="./erweima.png" alt="">
+    </div>
+    <div class="foot"> 
+        <p>版权所有&copy;极客大叔</p>
+    </div>
+</body>
+</html>
