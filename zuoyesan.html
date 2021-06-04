@@ -9,45 +9,56 @@
             padding: 0;
         }
         body{
-            width: 80%;
-            margin-left: 10%;
+            width: 100%;
         }
         .top{
             height: 50px;
             background-color: #FF4C4F;
         }
-        .top p{
+        .top .nr{
+            height: 100%;
+            width: 1200px;
+            margin: 0 auto;
+        }
+        .nr p{
             float: left;
-            margin-left: 150px;
             margin-top: 10px;
             color: #FEF0EF;
         }
-        .top a{
+        .nr a{
             float: right;
             margin-right: 10px;
             margin-top: 10px;
             color: #FEF0EF;
         }
-        h1{
-            width: 160px;
-            height: 80px;
-            text-align: center;
+        .zhong{
+            width: 1200px;
+            margin: 0 auto;
+        }
+        .zhong h1{
             margin-top: 30px;
-            margin-left: 45%;
-            border-bottom: 4px solid black;
+            text-align: center;
+        }
+        .zhong hr{
+            width: 100px;
+            margin: 0 auto;
+            margin-top: 40px;
+            background-color: black;
+            border: 2px solid black;
         }
         .xhddy,.xhds{
             display: flex;
+            justify-content: space-between;
         }
         .dianying,.shu{
-            width: 25%;
+            width: 22%;
             height: 400px;
-            margin: 20px;
             background-color: #FEF0EF;
+            margin-top: 50px;
             border: 1px solid red;
         }
         .dianying:hover,.shu:hover{
-            margin-top: 10px;
+            margin-top: 40px;
         }
         img {
             width: 100%;
@@ -63,6 +74,7 @@
             height: 200px;
             padding-left: 10%;
             padding-right: 10%;
+            margin-top: 30px;
             box-sizing: border-box;
             background-color: #7F0012;
             display: flex;
@@ -92,12 +104,16 @@
 </head>
 <body>
     <div class="top">
+        <div class="nr">
         <p>极客大叔的爱好</p>
-        <a href="#" style="margin-right: 150px;">逛一圈</a>
+        <a href="#">逛一圈</a>
         <a href="#">喜欢的书</a>
         <a href="#">喜欢的电影</a>
+        </div>
     </div>
-    <h1>喜欢的电影</h1>
+    <div class="zhong">
+       <h1>喜欢的电影</h1>
+    <hr>
     <div class="xhddy">
         <div class="dianying">
             <img src="./dianying.jpg" alt="">
@@ -117,6 +133,7 @@
         </div>
     </div>
     <h1>喜欢的书</h1>
+    <hr>
     <div class="xhds">
         <div class="shu">
             <img src="./shu.jpg" alt="">
@@ -134,7 +151,9 @@
             <img src="./shu.jpg" alt="">
             <p>书</p>
         </div>
+    </div> 
     </div>
+    
     <div class="jieshao">
         <p>王小波说他是一只特立独行的猪，那我就当个一只特立独行的鸟吧。交个朋友么，扫下右边的二维码。        </p>
         <img src="./erweima.png" alt="">
