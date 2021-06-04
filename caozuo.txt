@@ -24,3 +24,4 @@ git commit -m ”这一次提交的描述“
 18.在前面的操作之后，以后的操作就简单多了，只需要：git add *,git commit -m "",最后一步只需要git push
 19.项目克隆：git clone 仓库地址
 20.更新项目:git pull
+21.输入“git remote -v”查看项目远程地址
