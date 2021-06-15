@@ -70,6 +70,7 @@
         var showWidth = showscreen.width();
         var tmd;
         var danmutext;
+        
 
         //点击发送弹幕按钮
         $("#fasong").click(function(){
@@ -78,17 +79,10 @@
                 return;
             } else{
                 // $("#srk").val("");                                                      
-            };
-
-            var danmutmd = $('#tmd').val(); 
-            if(danmutmd == '' || danmutmd<0 || danmutmd >1){
-                tmd = 1;
-            }else{
-                tmd = $('#tmd').val();
-            }
+            };  
             var textObj = $("<p>"+danmutext+"</p>");
             showscreen.append(textObj);
-            moveObj(textObj);                       
+            moveObj(textObj);                     
         });
 
         $("#srk").keydown(function(e){
@@ -96,6 +90,17 @@
                 $("#fasong").click();
             }
             });
+
+            $('#tmd').blur(function(){
+            var danmutmd = $('#tmd').val(); 
+            if(danmutmd == '' || danmutmd<0 || danmutmd >1){
+                tmd = 1;
+            }else{
+                tmd = $('#tmd').val();
+            }
+            $('p').css('opacity',tmd);
+            
+        })
 
         //清空弹幕
         $("#qingkong").click(function(){            
