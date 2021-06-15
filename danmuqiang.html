@@ -13,7 +13,6 @@
             height: 600px;
             width: 80%;
             margin: 0 auto;
-            font-size: 30px;
             background-color: pink;
             overflow: hidden;
         }
@@ -70,10 +69,11 @@
         var showHeight = showscreen.height();     
         var showWidth = showscreen.width();
         var tmd;
+        var danmutext;
 
         //点击发送弹幕按钮
         $("#fasong").click(function(){
-            var danmutext = $("#srk").val();  
+            danmutext = $("#srk").val();  
             if(danmutext == ''){
                 return;
             } else{
@@ -90,6 +90,12 @@
             showscreen.append(textObj);
             moveObj(textObj);                       
         });
+
+        $("#srk").keydown(function(e){
+            if(e.keyCode==13){
+                $("#fasong").click();
+            }
+            });
 
         //清空弹幕
         $("#qingkong").click(function(){            
@@ -113,6 +119,7 @@
             var begin = showWidth;   //一开始的起点
             var suijishu = parseInt(Math.random()*600);
             top+=suijishu;
+            var size = Math.random()*30+10;
 
             if(top > topMax-50){
                 top-=550;
@@ -121,7 +128,8 @@
             obj.css({
                 left:begin,
                 top:top,
-                color:getRandomColor()
+                color:getRandomColor(),
+                fontSize:size,
             });
 
             var time = 20000 + 20000*Math.random();
