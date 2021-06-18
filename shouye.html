@@ -13,6 +13,30 @@
     .app{
         width:100%;
     }
+    .top{
+        width: 100%;
+        height: 50px;
+        background-color: #F2F2F2;
+    }
+    .topnr{
+        width: 1200px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0 auto;     
+    }
+    .topnr img{
+        width: 40px;
+        height: 40px;
+    }
+    .topnr .topz{
+        display: flex;
+        align-items: center;
+    }
+    .topz h5{
+        margin-left: 20px;
+    }
     .neirong{
         width: 1200px;
         margin: 10px auto;
@@ -50,16 +74,109 @@
         display: flex;
         width: 100%;
         height: 400px;
-        margin-top: 10px;
     }
     .yi img{
         width: 600px;
         height: 400px;
     }
+    .yi .nr{
+        width: 100%;
+        height: 100%;
+        padding: 30px 40px;
+        text-align: center;
+        box-sizing: border-box;
+    }
+    .nr .p .p1{
+        font-size: 14px;
+        height: 60%;
+    }
+    .nr hr{
+        width: 300px;
+        margin: 0 auto;
+    }
+    .nr .p .p2{
+        font-size: 16px;
+    }
+    .nr .p{
+        display: flex;
+        height: 100%;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .xwdt{
+        display: flex;
+        width: 100%;
+    }
+    .xwdt .xwyi{
+        width: 25%;
+        padding: 20px 10px;
+    }
+    .xwyi img{
+        width: 100%;
+        height: 60%;
+    }
+    .xwyi h5{
+        margin-top: 10px;
+    }
+    .xwyi p{
+        margin-top: 10px;
+    }
+    .foot{
+         width: 100%;
+         background-color: #D7D7D7;
+         margin-top: 50px;
+         height: 380px;
+    }
+    .footer{ 
+        width: 100%;
+        padding: 10px 100px;
+        display: flex;
+        justify-content: space-between;
+    }
+    .foot .footyi{
+        width: 20%;    
+    }
+    .footyi img{
+        width: 80%;
+        height: 60%;
+        margin-left: 10%;
+    }
+    .footyi .img1{
+        width: 100%;
+        height: 90%;
+        margin: 0 auto;
+    }
+    .footyi p{
+        margin-top: 10px;
+        font-size: 14px;
+        text-align: center;
+    }
+    .foot hr{
+        width: 300px;
+        height: 2px;
+        margin: 10px auto;
+    }
+    .foot .pyi{
+        text-align: center;
+    }
 </style>
 </head>
 <body>
 <div class="app">
+    <div class="top">
+        <div class="topnr">
+            <div class="topz">
+            <img src="./草帽.png" alt="">
+            <h5>海贼王</h5>
+            </div>
+            <div class="topy">
+            <a href="./shouye.html">首页</a>
+            <a href="./xinwen.html">新闻</a>
+            <a href="./guanyuwomen.html">关于我们</a>
+            </div>
+        </div>
+        
+    </div>
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" style="width: 100%;">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -109,42 +226,95 @@
         <h1>团队介绍</h1>
         <div class="tdjs">
             <div class="yi">
-                <img src="./shu.jpg" alt="">
+                <img src="./lufei.jpeg" alt="">
                 <div class="nr">
                     <h2>路飞</h2>
-                    <p>哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</p>
-                    <hr>
-                    <p>啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</p>
+                    <div class="p">
+                        <p class="p1">哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</p>                   
+                        <p class="p2"><hr>啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</p>
+                    </div>            
                 </div>
             </div>
             <div class="yi">                
                 <div class="nr">
                     <h2>路飞</h2>
-                    <p>哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</p>
-                    <hr>
-                    <p>啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</p>
+                    <div class="p">
+                        <p class="p1">哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</p>                   
+                        <p class="p2"><hr>啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</p>
+                    </div>
                 </div>
-                <img src="./shu.jpg" alt="">
+                <img src="./lufei.jpeg" alt="">
             </div>
             <div class="yi">
-                <img src="./shu.jpg" alt="">
+                <img src="./lufei.jpeg" alt="">
                 <div class="nr">
                     <h2>路飞</h2>
-                    <p>哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</p>
-                    <hr>
-                    <p>啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</p>
+                    <div class="p">
+                        <p class="p1">哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</p>                   
+                        <p class="p2"><hr>啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</p>
+                    </div>
                 </div>
             </div>
             <div class="yi">               
                 <div class="nr">
                     <h2>路飞</h2>
-                    <p>哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</p>
-                    <hr>
-                    <p>啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</p>
+                    <div class="p">
+                        <p class="p1">哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</p>                   
+                        <p class="p2"><hr>啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</p>
+                    </div>
                 </div>
-                <img src="./shu.jpg" alt="">
+                <img src="./lufei.jpeg" alt="">
             </div>
         </div>
+        <h1>新闻动态</h1>
+        <div class="xwdt">
+            <div class="xwyi">
+                <img src="./kafei.jpg" alt="">
+                <h5>啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</h5>
+                <hr>
+                <p>哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</p>
+            </div>
+            <div class="xwyi">
+                <img src="./kafei.jpg" alt="">
+                <h5>啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</h5>
+                <hr>
+                <p>哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</p>
+            </div>
+            <div class="xwyi">
+                <img src="./kafei.jpg" alt="">
+                <h5>啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</h5>
+                <hr>
+                <p>哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</p>
+            </div>
+            <div class="xwyi">
+                <img src="./kafei.jpg" alt="">
+                <h5>啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</h5>
+                <hr>
+                <p>哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</p>
+            </div>
+        </div>
+    </div>
+    <div class="foot">
+        <div class="footer">
+            <div class="footyi">
+            <img src="./shu.png" alt="">
+            <p>帆帆帆帆帆帆帆帆帆帆</p>
+        </div>
+        <div class="footyi">
+            <img src="./shu.png" alt="">
+            <p>烦烦烦烦烦烦烦烦烦烦烦烦</p>
+        </div>
+        <div class="footyi">
+            <img src="./shu.png" alt="">
+            <p>烦烦烦烦烦烦烦烦烦方法</p>
+        </div>
+        <div class="footyi">
+            <img class="img1" src="./erweima.png" alt="">
+            <p>啊啊啊啊啊啊啊啊啊啊啊</p>
+        </div>         
+        </div>
+          <hr>
+          <p class="pyi">fffffffffffffffffffff</p>
     </div>
 </div>
     
