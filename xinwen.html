@@ -175,11 +175,11 @@
             </div>
             <ul class="pagination">
                 <li><a onclick="jian()">&laquo;</a></li>
-                <li><a onclick="page(1)">1</a></li>
-                <li><a onclick="page(2)">2</a></li>
-                <li><a onclick="page(3)">3</a></li>
-                <li><a onclick="page(4)">4</a></li>
-                <li><a onclick="page(5)">5</a></li>
+                <li><a onclick="geturl(1)">1</a></li>
+                <li><a onclick="geturl(2)">2</a></li>
+                <li><a onclick="geturl(3)">3</a></li>
+                <li><a onclick="geturl(4)">4</a></li>
+                <li><a onclick="geturl(5)">5</a></li>
                 <li><a onclick="jia()">&raquo;</a></li>
             </ul>         
         </div> 
@@ -212,13 +212,16 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
       <script>
         
-        var m = 1;
-        var nn;
+        var m = window.location.href.split("?page=")[1] || 1;
+
+        function geturl(n){
+            window.location.href=`?page=${n}`
+        }
         page(m);
         function page(n){
-             nn = n;
+             m = n;
             $(".xwnr").empty();
-            axios.get("https://lingqule.papamk.com/wp-json/w2w/v1/products?page="+nn).then(function(res){
+            axios.get(`https://lingqule.papamk.com/wp-json/w2w/v1/products?page=${n}`).then(function(res){
         $(function(){
             for(var i=0;i<res.data.length;i++){    
                 var p = $(`
@@ -240,17 +243,15 @@
         })
         }
         function jian(){                                                                 
-                if(nn>1){ 
-                    nn--;
-                page(nn);
+                if(m>1){ 
+                geturl(m-1);
                 }else{
                     return;
                 }                                     
             };
-            function jia(){                                                                 
-                if(nn<5){
-                    nn++; 
-               page(nn);
+        function jia(){                                                                 
+                if(m<5){ 
+               geturl(m+1);
                 }else{
                     return;
                 }                                   
