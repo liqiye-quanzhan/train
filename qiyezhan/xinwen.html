@@ -6,37 +6,15 @@
     <!-- 新 Bootstrap 核心 CSS 文件 -->
 <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"  crossorigin="anonymous"> -->
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="./xiangyingshi.css">
     <style>
         *{
             margin: 0;
             padding: 0;
         }
-    .top{
-        width: 100%;
-        height: 80px;
-        background-color: #666666;
-        display: flex;
-        flex-direction: column;
-    }
-    .topnr{
-        width: 1200px;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin: 0 auto;     
-    }
-    .topnr img{
-        width: 40px;
-        height: 40px;
-    }
-    .topnr .topz{
-        display: flex;
-        align-items: center;
-    }
-    .topz h5{
-        margin-left: 20px;
-    }
+        .app{
+            width: 100%;
+        }
     .neirong{
         width: 1200px;
         margin: 0 auto;
@@ -81,9 +59,10 @@
         margin-top: 20px;
     }
     .xwnr .yi{
-        width: 50%;
+        width: 100%;
         height: 25%;
         display: flex;
+        flex-direction: column;
         padding: 10px 10px;
     }
     .yi:hover{
@@ -91,7 +70,7 @@
         background-color: #D7D7D7;
     }
     .xwnr .yi img{
-        width: 40%;
+        width: 100%;
         height: 200px;
     }
     .yiyou{
@@ -113,61 +92,84 @@
         cursor: pointer;
         background-color: #666666;
     }
-    .foot{
-         width: 100%;
-         background-color: #D7D7D7;
-         height: 380px;
-    }
-    .footer{ 
-        width: 1200px;
-        padding: 20px 0;
-        margin: 0 auto;
-        display: flex;
-        justify-content: space-between;
-    }
-    .foot .footyi{
-        width: 20%;    
-    }
-    .footyi img{
-        width: 80%;
-        height: 60%;
-        margin-left: 10%;
-    }
-    .footyi .img1{
-        width: 100%;
-        height: 90%;
-        margin: 0 auto;
-    }
-    .footyi p{
-        margin-top: 10px;
-        font-size: 14px;
-        text-align: center;
-    }
-    .foot hr{
+    
+    @media screen and (min-width:300px){
+        .topnr, .neirong, .footer{
         width: 300px;
-        height: 2px;
-        margin: 10px auto;
-        background-color: #333333;
+        }
     }
-    .foot .pyi{
-        text-align: center;
+    @media screen and (min-width:600px){
+        .topnr, .neirong, .footer{
+        width: 600px;
+        }
+        .jieshao{
+            flex-direction: row;
+        }
+        .jieshao p{
+        width: 600px;         
+        }
+        .xwnr .yi{
+            flex-direction: row;
+        }
+        .xwnr .yi img{
+        width: 40%;
     }
+    }
+    @media screen and (min-width:900px){
+        .topnr,.neirong, .footer{
+        width: 900px;
+        }
+        .topy{
+            display: flex!important;
+        }
+        .topbtn{
+            display: none;
+        }
+        .yi{
+            flex-direction: row;
+        }
+        .er{
+            flex-direction: row-reverse;
+        }
+        .yi img,.er img{
+        width: 60%;
+        }
+        .yi .nr,.er .nr{
+            width: 40%;
+        }
+        .footer{
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        .xwnr .yi{
+            width: 50%;
+        }
+        }
+    @media screen and (min-width:1200px){
+            .topnr, .neirong, .footer{
+            width: 1200px;
+        }
+        }
     </style>
 </head>
 <body>
-    <div class="top">
-        <div class="topnr">
-            <div class="topz">
-            <img src="./草帽.png" alt="">
-            <h5>海贼王</h5>
-            </div>
-            <div class="topy">
+    <div class="app">
+        <div class="top">
+            <div class="topnr">
+                <div class="topnrnr">
+                <div class="topz">
+                <img src="./草帽.png" alt="">
+                <h5>海贼王</h5>
+                </div>
+                <div class="topy">
                 <a href="./shouye.html">首页</a>
                 <a href="./xinwen.html">新闻</a>
                 <a href="./guanyuwomen.html">关于我们</a>
-            </div>
+                </div>  
+                </div>          
+                <button class="topbtn">按钮</button>
+            </div>      
         </div>
-    </div>
     <div class="title">
         <div class="zuo">
         </div>
@@ -196,30 +198,35 @@
     </div>
     <div class="foot">
         <div class="footer">
-            <div class="footyi">
-            <img src="./shu.png" alt="">
-            <p>帆帆帆帆帆帆帆帆帆帆</p>
-        </div>
-        <div class="footyi">
-            <img src="./shu.png" alt="">
-            <p>烦烦烦烦烦烦烦烦烦烦烦烦</p>
-        </div>
-        <div class="footyi">
-            <img src="./shu.png" alt="">
-            <p>烦烦烦烦烦烦烦烦烦方法</p>
-        </div>
-        <div class="footyi">
+            <div class="footernr">
+                <div class="footyi">
+                <img src="./shu.png" alt="">
+                <p>帆帆帆帆帆帆帆帆帆帆</p>
+                </div>
+                <div class="footyi">
+                    <img src="./shu.png" alt="">
+                    <p>烦烦烦烦烦烦烦烦烦烦烦烦</p>
+                </div>
+                <div class="footyi">
+                    <img src="./shu.png" alt="">
+                    <p>烦烦烦烦烦烦烦烦烦方法</p>
+                </div>
+            </div>       
+         <div class="footyier">
             <img class="img1" src="./erweima.png" alt="">
             <p>啊啊啊啊啊啊啊啊啊啊啊</p>
-        </div>         
+         </div>         
         </div>
           <hr>
           <p class="pyi">fffffffffffffffffffff</p>
-      </div>
+    </div>
+    </div>
+    
     
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"  crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"  crossorigin="anonymous"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./btn.js"></script>
       <script>
         
         var m =Number(window.location.href.split("?page=")[1]) || 1;

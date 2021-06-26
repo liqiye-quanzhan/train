@@ -1,0 +1,27 @@
+1.进入当前目录：打开Git Bash，输入cd，点击空格后，把要操作的文件夹拉到命令行界面中，点击空格运行
+2.在本地配置内容：$ git config --global user.name "你的GitHub用户名"
+                              $ git config --global user.email "你的GitHub邮箱"
+3.git工作流程目录：工作区（本地磁盘目录）->暂存区（虚拟磁盘）->远程仓库（GitHub）
+4.远程仓库的创建：点击在GitHub中的右上角的加号的new repository，
+在repository name中输入名称，在Description中输入介绍，public选项表示开源，
+点击create repository创建即可
+5.暂存区的建立：输入git init
+6.工作区->暂存区：git add 文件名（提交指定文件），git add *（提交全部文件）
+git commit -m ”这一次提交的描述“
+7.查看是否提交成功：git status
+8.从暂存区恢复文件到工作区：git checkout 文件名
+9.查看哪个文件进行修改了：git diff
+10.清屏操作：clear
+11.查看已经提交到暂存区的历史版本：git log
+12.恢复文件到指定的某一个版本：git reset --hard 要恢复的版本号（commit后面的数据）
+13.远程仓库地址：新建的仓库界面中上面的HTTPS对应的地址
+14.给电脑授权第一步 - 生成ssh密匙：ssh-keygen -t rsa -C "你的GitHub的邮箱地址"，然后一路敲回车
+15.寻找隐藏文件：我的电脑->用户->用户名文件->.ssh后缀名的文件->xxx.pub文件，
+用编译器打开，复制内容
+16.GitHub配置密匙：点击右上角头像下拉列表中的settings，点击SSH and GPG keys，
+然后点击右上角的new SSH key，把内容复制到key中，点击配置就可以了
+17.暂存区->远程仓库：git remote add origin 仓库地址，git branch -M mian,git push -u origin mian（新建的仓库上面有代码提示）
+18.在前面的操作之后，以后的操作就简单多了，只需要：git add *,git commit -m "",最后一步只需要git push
+19.项目克隆：git clone 仓库地址
+20.更新项目:git pull
+21.输入“git remote -v”查看项目远程地址
