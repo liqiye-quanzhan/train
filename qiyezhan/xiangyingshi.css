@@ -1,4 +1,4 @@
-@media screen and (min-width:300px){
+@media screen and (max-width:600px){
     .col-xs-12{
         width: 100%;
     }
@@ -128,8 +128,6 @@
     flex-direction: column;
     margin: 0 auto;
 }
-
-
 .foot{
     width: 100%;
     background-color: #D7D7D7;

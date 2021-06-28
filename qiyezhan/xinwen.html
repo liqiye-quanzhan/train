@@ -121,6 +121,7 @@
         }
         .topy{
             display: flex!important;
+            flex-direction: row;
         }
         .topbtn{
             display: none;
@@ -144,6 +145,10 @@
         .xwnr .yi{
             width: 50%;
         }
+        .topnrnr{
+        flex-direction: row;
+        justify-content: space-between;
+        }     
         }
     @media screen and (min-width:1200px){
             .topnr, .neirong, .footer{
@@ -200,20 +205,20 @@
         <div class="footer">
             <div class="footernr">
                 <div class="footyi">
-                <img src="./shu.png" alt="">
+                <img data-src="./shu.png" alt="" class="lazy">
                 <p>帆帆帆帆帆帆帆帆帆帆</p>
                 </div>
                 <div class="footyi">
-                    <img src="./shu.png" alt="">
+                    <img data-src="./shu.png" alt="" class="lazy">
                     <p>烦烦烦烦烦烦烦烦烦烦烦烦</p>
                 </div>
                 <div class="footyi">
-                    <img src="./shu.png" alt="">
+                    <img data-src="./shu.png" alt="" class="lazy">
                     <p>烦烦烦烦烦烦烦烦烦方法</p>
                 </div>
             </div>       
          <div class="footyier">
-            <img class="img1" src="./erweima.png" alt="">
+            <img class="img1 lazy" data-src="./erweima.png" alt="">
             <p>啊啊啊啊啊啊啊啊啊啊啊</p>
          </div>         
         </div>
@@ -238,20 +243,21 @@
         function page(n){
              m = n;
             $(".xwnr").empty();
-            axios.get(`https://lingqule.papamk.com/wp-json/w2w/v1/products?page=${n}`).then(function(res){
+            axios.get(`https://www.fastmock.site/mock/968960dc8a67c508d7126e45a469f261/qiyezhan-api/qiyezhanxinwen?page=${n}`).then(function(res){
         $(function(){
-            for(var i=0;i<res.data.length;i++){    
+            console.log(res);
+            for(var i=0;i<res.data.data.news.length;i++){    
                 var p = $(`
                 <div class="yi">
-                    <img src="${res.data[i].images[0].src}" alt="">                   
+                    <img src="${res.data.data.news[i].src}" alt="" class="lazy">                   
                     <div class="yiyou">
-                        <h5>${res.data[i].id}</h5>
-                        <span>${res.data[i].name}</span>
-                        <p>${res.data[i].date_created}</p>
+                        <h5>${res.data.data.news[i].content}</h5>
+                        <span>${res.data.data.news[i].title}</span>
+                        <p>${res.data.data.news[i].time}</p>
                     </div>
                 </div>`);
                 $('.xwnr').append(p);    
-                p.attr('id',res.data[i].id);                        
+                p.attr('id',res.data.data.news[i].id);                        
             };
             $(".yi").click(function(){
             window.location.href = `xiangqing.html?id=${$(this).attr('id')}`;                    
