@@ -15,7 +15,7 @@
         width: 16.67%;
     }
 }
-@media screen and (min-width:600px){
+@media screen and (min-width:600px) and (max-width:900px){
     .col-sm-12{
         width: 100%;
     }
