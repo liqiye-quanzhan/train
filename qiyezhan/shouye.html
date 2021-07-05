@@ -175,6 +175,7 @@
         }
         .topy{
             display: flex!important;
+            flex-direction: row;
         }
         .topbtn{
             display: none;
@@ -195,6 +196,10 @@
             flex-direction: row;
             justify-content: space-between;
         }
+        .topnrnr{
+        flex-direction: row;
+        justify-content: space-between;
+        }   
         }
     @media screen and (min-width:1200px){
             .topnr, .neirong, .footer{
@@ -229,13 +234,19 @@
         </div>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img  data-src="./haizeiwang.jpeg" class="d-block w-100 lazy" alt="..." style="min-height:520px" >
+            <img   class="d-block w-100 lazyload" alt="..." style="min-height:520px" srcset="./haizeiwang600.jpg	600w,
+            ./haizeiwang.jpeg	1200w,
+            ./haizeiwang900.jpg	900w" sizes="auto">
           </div>
           <div class="carousel-item">
-            <img  data-src="./haizeiwang.jpeg" class="d-block w-100 lazy" alt="..." style="min-height:520px" >
+            <img   class="d-block w-100 lazyload" alt="..." style="min-height:520px" srcset="./haizeiwang600.jpg	600w,
+            ./haizeiwang.jpeg	1200w,
+            ./haizeiwang900.jpg	900w"  sizes="auto">
           </div>
           <div class="carousel-item">
-            <img  data-src="./haizeiwang.jpeg" class="d-block w-100 lazy" alt="..." style="min-height:520px" >
+            <img   class="d-block w-100 lazyload" alt="..." style="min-height:520px" srcset="./haizeiwang600.jpg	600w,
+            ./haizeiwang.jpeg	1200w,
+            ./haizeiwang900.jpg	900w"  sizes="auto">
           </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
