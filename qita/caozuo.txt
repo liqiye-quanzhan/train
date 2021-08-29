@@ -25,3 +25,6 @@ git commit -m ”这一次提交的描述“
 19.项目克隆：git clone 仓库地址
 20.更新项目:git pull
 21.输入“git remote -v”查看项目远程地址
+22.把本地的 master 仓库名称修改为远端的 main
+重命名命令： git branch -m oldBranchName newBranchName
+例如：git branch -m master  main
