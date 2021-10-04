@@ -6,6 +6,11 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import VueWechatTitle from 'vue-wechat-title'
 const echarts = require('echarts') //引入echarts
+import Axios from 'axios'
+import VueAxios from 'vue-axios'
+Vue.use(VueAxios,Axios)
+Vue.config.productionTip = false
+Axios.defaults.withCredentials=true;
 
 Vue.prototype.$echarts = echarts //引入组件
 Vue.use(VueWechatTitle)

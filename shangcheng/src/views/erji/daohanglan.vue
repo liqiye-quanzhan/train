@@ -1,4 +1,5 @@
 <template>
+<div>
   <div class="daohanglan">
     <div class="zuo">
         <li class="li" id="tansuoksd">探索卡萨帝</li>        
@@ -70,14 +71,53 @@
     </div>
     <div class="you">
       <i class="el-icon-search"></i>
-      <i class="el-icon-s-custom"></i>
+      <i class="el-icon-s-custom" @click="dialogFormVisible = true"></i>
       <!-- <p><a @click="godenglu()">登录/</a><a @click="gozhuce()">注册</a></p> -->
       <p><a @click="godenglu()">{{dlzc}}</a></p>
     </div>
   </div>
+  <el-dialog title="个人信息" :visible.sync="dialogFormVisible">
+      <el-form :model="form">
+        <el-form-item label="名称:" :label-width="formLabelWidth">
+          <el-input v-model="form.name" autocomplete="off"></el-input>
+        </el-form-item>
+        <el-form-item label="手机号:" :label-width="formLabelWidth">
+          <el-input v-model="form.mobileno" autocomplete="off"></el-input>
+        </el-form-item>
+        <el-form-item label="性别:" :label-width="formLabelWidth">
+          <el-radio-group v-model="form.sex">
+            <el-radio label="1">男</el-radio>
+            <el-radio label="0">女</el-radio>
+          </el-radio-group>
+        </el-form-item>
+        <el-form-item label="生日:" :label-width="formLabelWidth">
+            <el-date-picker
+              v-model="form.birthday"
+              type="date"
+              format="yyyy-MM-dd"
+              value-format="timestamp"
+              placeholder="选择日期">
+            </el-date-picker>
+        </el-form-item>
+        <el-form-item label="地址:" :label-width="formLabelWidth">
+          <el-input v-model="form.address" autocomplete="off"></el-input>
+        </el-form-item>
+        <el-form-item label="余额:" :label-width="formLabelWidth">
+          <p>{{form.money}}</p>
+        </el-form-item>
+      </el-form>
+      <div slot="footer" class="dialog-footer">
+        <el-button @click="dialogFormVisible = false">取 消</el-button>
+        <el-button type="primary" @click="ok">确 定</el-button>
+      </div>
+    </el-dialog>
+</div>
+  
 </template>
 
+<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.4.1.min.js"></script>
 <script>
+import axios from 'axios'
 export default {
     data() { 
         return {   
@@ -199,7 +239,7 @@ export default {
                     a:"热水器"               
             },
             ],
-            huodonger:[
+          huodonger:[
             {
                     id:1,
                     url:require('../../assets/img/dianshi.png'),
@@ -225,33 +265,35 @@ export default {
                     url:require('../../assets/img/zhinengmensuo.png'),
                     a:"智能门锁"               
             },
-            ],
+          ],
             n:0,
             m:2,
             heighth:0,
             dlzc:"登录/注册",
+            dialogFormVisible: false,
+            id:'',
+            form: {},
+            formLabelWidth: '120px',
         }
     },
     mounted() {
       this.heighth = document.documentElement.clientHeight -281;
+      this.usershow()
     },
     beforeMount() {
       if(sessionStorage.getItem('username')){
-        this.dlzc = sessionStorage.getItem('username');
-        
+        this.dlzc = sessionStorage.getItem('username');       
       }
     },
     methods: {
       godenglu(){
         if(sessionStorage.getItem('username')){
-          return;
+          this.form = {}
+          this.$router.push('/login')
         }else{
           this.$router.push('/login');
         }
       }, 
-      // gozhuce(){
-      //   this.$router.push('/zhuce');
-      // }  
        goLeft(){
             if(this.n == 1){
                 this.n--;
@@ -288,7 +330,29 @@ export default {
         },
         gohome(){
           this.$router.push('/home')
-        }
+        },
+        usershow(){
+          this.id = sessionStorage.getItem("username")
+          const that = this
+          axios({
+              method:'post',
+              url:`http://192.168.31.130:8080/userInfoController/selectUser?id=${that.id}`,
+            }).then(function(res){
+               that.form = res.data.rs    
+               that.form.sex = String(that.form.sex)     
+            }) 
+        },
+        ok(){
+          const that = this
+          console.log(this.form);
+          axios({
+              method:'post',
+              url:`http://192.168.31.130:8080/userInfoController/updateUser?id=${that.id}&name=${that.form.name}&mobileno=${that.form.mobileno}&sex=${that.form.sex}&birthday=${that.form.birthday}&address=${that.form.address}`,
+            }).then(function(res){
+               console.log(res); 
+               that.dialogFormVisible = false  
+            }) 
+        },
     },
 }
 </script>
@@ -313,8 +377,8 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
- 
   flex-grow: 1;
+  transition: 0.8s;
 }
 .li:hover{
    background: #80429F;

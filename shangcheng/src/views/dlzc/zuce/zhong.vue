@@ -18,6 +18,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
     data() {
         var validatePass = (rule, value, callback) => {
@@ -49,11 +50,11 @@ export default {
         rules: {
           name: [
             { required: true, message: '请输入账号', trigger: 'blur' },
-            { min: 3, max: 3, message: '长度在 3 个字符', trigger: 'blur' }
+            { min: 3, max: 10, message: '长度在 3 到 10 个字符', trigger: 'blur' }
           ],
           powssd: [
             { required: true, message: '请输入密码', trigger: 'blur' },
-            { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' },
+            { min: 3, max: 10, message: '长度在 3 到 10 个字符', trigger: 'blur' },
             { validator: validatePass, trigger: 'blur' }
           ],
 
@@ -65,11 +66,17 @@ export default {
     },
     methods: {
         submitForm(formName) {
+          const that = this
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            this.$router.push('/login');
+            axios({
+              method:'post',
+              url:`http://192.168.31.130:8080/accountController/register?id=${that.ruleForm.name}&pwd=${that.ruleForm.powssd}`
+            }).then(function(res){
+              alert(res.data.msg);
+              that.$router.push('/login');
+            })
           } else {
-            console.log('error submit!!');
             return false;
           }
         });

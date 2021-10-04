@@ -71,7 +71,7 @@ const routes = [
   },
  {
    path:'/',
-   name:'',
+   name:'login',
    redirect:'/login',
    component: () => import('../views/dlzc/denglu/denglu.vue'),
    children:[
@@ -93,6 +93,30 @@ const routes = [
     }
   ]
  },
+ {
+  path:'/',
+  redirect:'/admin',
+  name:'user',
+  component: () => import('../views/usermanagement/user.vue'),
+  children:[
+    {
+      path:'/admin',
+      name:'admin',
+      meta:{
+        title:"用户管理-卡萨都官网",
+      },
+      component: () => import('../views/usermanagement/admin.vue'),
+    },
+    {
+      path:'/order',
+      name:'order',
+      meta:{
+        title:"订单管理-卡萨帝官网",
+      },
+      component: () => import('../views/usermanagement/order.vue')
+    }
+  ]
+},
 //  {
 //   path:'/',
 //   name:'',

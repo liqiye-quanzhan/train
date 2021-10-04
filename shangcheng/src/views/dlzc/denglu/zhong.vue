@@ -15,6 +15,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
     data() {
         return {
@@ -25,28 +26,34 @@ export default {
         rules: {
           name: [
             { required: true, message: '请输入账号', trigger: 'blur' },
-            { min: 3, max: 3, message: '长度在 3 个字符', trigger: 'blur' }
+            { min: 3, max: 10, message: '长度在 3 到 10 个字符', trigger: 'blur' }
           ],
           powssd: [
             { required: true, message: '请输入密码', trigger: 'blur' },
-            { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+            { min: 3, max: 10, message: '长度在 3 到 10 个字符', trigger: 'blur' }
           ],
         }
         }
     },
     methods: {
         submitForm(formName) {
+          const that = this
           let {name,powssd} = this.ruleForm;
         this.$refs[formName].validate((valid) => {
-          if(name == 'aaa' && powssd == '1111'){
-            //缓存
-            sessionStorage.setItem('username',name);
-
-            //跳转
-            this.$router.push('/home');
-          }else{
-            alert('用户名或密码不正确')
-          }
+            axios({
+              method:'post',
+              url:`http://192.168.31.130:8080/accountController/login?id=${name}&pwd=${powssd}`,
+            }).then(function(res){
+              console.log(res.data);
+              if(res.data.code == 0){
+                sessionStorage.setItem('username',name);
+                if(res.data.rs.type == "user"){that.$router.push('/home');}
+                else{that.$router.push('/admin');}
+              }else{
+                alert(res.data.msg);
+                return;
+              }           
+            })            
         });
       },
     },

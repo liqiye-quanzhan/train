@@ -14,11 +14,11 @@
             <p class="pp4">￥{{items.psi}}</p>
             <div class="caozuo">
             <p class="pp5">{{items.pwu}}</p>
-            <p class="pp6" @click="goduibi(items.id)">{{items.pliu}}</p>
+            <p class="pp6" @click="goduibi(items)">{{items.pliu}}</p>
             </div> 
             </div>
         </div>
-        <div class="gouwuche" v-show="duibim != '' && zongjine != 0" :style="{top:gouwucheh + 'px'}">
+        <!-- <div class="gouwuche" v-show="duibim != '' && zongjine != 0" :style="{top:gouwucheh + 'px'}">
             <div class="duibi">
                 <p>产品对比</p>
                 <p @click="yincang()">{{yincangp}}</p>
@@ -35,15 +35,41 @@
                 </div>
                 <div class="liebiaoduibi">
                     <p>总金额：{{zongjine}}</p>
-                    <p class="p1">对比</p>
+                    <p class="p1" @click="dialogFormVisible = true">购买</p>
                     <p @click="qingkong()">清空对比栏</p>
                 </div>
             </div>
+        </div> -->
+
+        <el-dialog title="客户信息" :visible.sync="dialogFormVisible">
+        <el-form :model="peopledata">
+            <el-form-item label="姓名:" :label-width="formLabelWidth">
+            <el-input v-model="peopledata.name" autocomplete="off"></el-input>
+            </el-form-item>
+            <el-form-item label="手机号:" :label-width="formLabelWidth">
+            <el-input v-model="peopledata.mobileno" autocomplete="off"></el-input>
+            </el-form-item>
+            <el-form-item label="地址:" :label-width="formLabelWidth">
+            <el-input v-model="peopledata.address" autocomplete="off"></el-input>
+            </el-form-item>
+            <el-form-item label="数量:" :label-width="formLabelWidth">
+            <el-input-number v-model="num" @change="handleChange" :min="1" :max="10" label="描述文字"></el-input-number>
+            </el-form-item>
+            <el-form-item label="总金额:" :label-width="formLabelWidth">
+            <p autocomplete="off">{{zongjine}}</p>
+            </el-form-item>
+        </el-form>
+        <div slot="footer" class="dialog-footer">
+            <el-button @click="dialogFormVisible = false">取 消</el-button>
+            <el-button type="primary" @click="ok">确 定</el-button>
         </div>
+        </el-dialog>
+
     </div>
 </template>
 
 <script>
+import axios from 'axios'
 export default {
     data() {
         return {
@@ -53,86 +79,46 @@ export default {
                 p3:"价格",
                 jiantou:""
             },
-            chanpins:[
-                {
-                    id:1,
-                    pyi:"633升嵌入式多门冰箱",
-                    per:"BCD-633WIGWUI",
-                    psan:"指挥家1",
-                    psi:37999,
-                    pwu:"收藏",
-                    pliu:"+加入对比",
-                    url:require("../../assets/img/chanpin/zhihuijia.png")
-                },
-                {
-                    id:2,
-                    pyi:"633升嵌入式多门冰箱",
-                    per:"BCD-633WIGWUI",
-                    psan:"指挥家2",
-                    psi:27999,
-                    pwu:"收藏",
-                    pliu:"+加入对比",
-                    url:require("../../assets/img/chanpin/zhihuijia.png")
-                },
-                {
-                    id:3,
-                    pyi:"633升嵌入式多门冰箱",
-                    per:"BCD-633WIGWUI",
-                    psan:"指挥家3",
-                    psi:67999,
-                    pwu:"收藏",
-                    pliu:"+加入对比",
-                    url:require("../../assets/img/chanpin/zhihuijia.png")
-                },
-                {
-                    id:4,
-                    pyi:"633升嵌入式多门冰箱",
-                    per:"BCD-633WIGWUI",
-                    psan:"指挥家4",
-                    psi:17999,
-                    pwu:"收藏",
-                    pliu:"+加入对比",
-                    url:require("../../assets/img/chanpin/zhihuijia.png")
-                },
-                {
-                    id:5,
-                    pyi:"633升嵌入式多门冰箱",
-                    per:"BCD-633WIGWUI",
-                    psan:"指挥家5",
-                    psi:57999,
-                    pwu:"收藏",
-                    pliu:"+加入对比",
-                    url:require("../../assets/img/chanpin/zhihuijia.png")
-                },
-                {
-                    id:6,
-                    pyi:"633升嵌入式多门冰箱",
-                    per:"BCD-633WIGWUI",
-                    psan:"指挥家6",
-                    psi:47999,
-                    pwu:"收藏",
-                    pliu:"+加入对比",
-                    url:require("../../assets/img/chanpin/zhihuijia.png")
-                },
-                {
-                    id:7,
-                    pyi:"633升嵌入式多门冰箱",
-                    per:"BCD-633WIGWUI",
-                    psan:"指挥家7",
-                    psi:77999,
-                    pwu:"收藏",
-                    pliu:"+加入对比",
-                    url:require("../../assets/img/chanpin/zhihuijia.png")
-                },
-            ],
+            chanpins:[],
             duibim:'',
             gouwucheh:600,
             yincangp:"隐藏",
             sx:0,
             zongjine:0,
+            formLabelWidth: '120px',
+            dialogFormVisible: false,
+            peopledata: {},
+            orderdata:{},
+            num: 1,
+            name:'',
         }
     },
+    mounted() {
+        this.show()
+    },
     methods: {
+        show(){
+            const that = this
+            this.chanpins = []
+            axios({
+              method:'post',
+              url:`http://192.168.31.130:8080/goodsController/selectByConditional?type=冰箱`
+            }).then(function(res){
+              for(let i = 0;i<res.data.rs.length;i++){
+                  let sum = {}
+                sum.id = res.data.rs[i].id
+                sum.pyi = res.data.rs[i].mark
+                sum.per = 'BCD-633WIGwUI'
+                sum.psan = '指挥家'
+                sum.psi = res.data.rs[i].money
+                sum.pwu = '收藏'
+                sum.pliu = '+购买'
+                sum.url = require("../../assets/img/chanpin/" + res.data.rs[i].image) 
+                // sum.url = require("../../assets/img/chanpin/zhihuijia.png")
+                that.chanpins.push(sum)
+              }
+            })
+        },
         sortByKey(array,key){
             return array.sort(function(a,b){
                 var x = a[key];
@@ -147,19 +133,32 @@ export default {
                 return((x>y)?-1:((x<y)?1:0));
             })
         },
+        // goduibi(i){
+            // for(var l = 1;l<=this.chanpins.length;l++){
+            //     if(this.chanpins[l-1].id == i){
+            //         if(this.chanpins[l-1].pliu == "+加入购物车"){
+            //     this.duibim = this.chanpins[l-1].pliu = "X";
+            //     this.zongjine += this.chanpins[l-1].psi;
+            // }else{
+            //     this.chanpins[l-1].pliu = "+加入购物车"; 
+            //     this.zongjine -= this.chanpins[l-1].psi;             
+            // };
+            //     }
+            // }      
+        // },
         goduibi(i){
-            for(var l = 1;l<=this.chanpins.length;l++){
-                if(this.chanpins[l-1].id == i){
-                    if(this.chanpins[l-1].pliu == "+加入对比"){
-                this.duibim = this.chanpins[l-1].pliu = "X";
-                this.zongjine += this.chanpins[l-1].psi;
-            }else{
-                this.chanpins[l-1].pliu = "+加入对比"; 
-                this.zongjine -= this.chanpins[l-1].psi;             
-            };
-                }
-            }
-          
+            const that = this
+            this.orderdata = i           
+            this.zongjine = this.orderdata.psi 
+            this.name = sessionStorage.getItem('username')    
+            axios({
+              method:'post',
+              url:`http://192.168.31.130:8080/userInfoController/selectUser?id=${that.name}`,
+            }).then(function(res){
+               that.peopledata = res.data.rs    
+               that.peopledata.sex = String(that.peopledata.sex)     
+               that.dialogFormVisible = true 
+            })     
         },
         yincang(){
             
@@ -191,17 +190,31 @@ export default {
         duibix(j){
             for(var l = 1;l<=this.chanpins.length;l++){
                 if(this.chanpins[l-1].id == j){
-                    this.chanpins[l-1].pliu = "+加入对比";
+                    this.chanpins[l-1].pliu = "+加入购物车";
                     this.zongjine -= this.chanpins[l-1].psi;
                 }
             }
         },
         qingkong(){
             for(var j=1;j<=this.chanpins.length;j++){
-                this.chanpins[j-1].pliu = "+加入对比";
+                this.chanpins[j-1].pliu = "+加入购物车";
             }
             this.duibim = '';
         },
+        ok(){
+            const that = this
+            console.log(this.peopledata);
+            axios({
+              method:'post',
+              url:`http://192.168.31.130:8080/userInfoController/buy?id=${that.name}&name=${that.peopledata.name}&mobileno=${that.peopledata.mobileno}&address=${that.peopledata.address}&money=${that.zongjine}&goodsid=${that.orderdata.id}&quantity=${that.num}`,
+            }).then(function(res){
+               alert(res.data.msg);
+               that.dialogFormVisible = false  
+            }) 
+          },
+        handleChange(value) {
+        this.zongjine = value*this.orderdata.psi
+      }
     },
     
 }
